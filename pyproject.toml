@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "PJ-automatization-proccess-of-ai-development"
+version = "0.1.0"
+description = ""
+authors = ["Mavericketoff <danylalebedev@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.1"
+scikit-learn = "^1.3"
+dvc = "^3.67"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4"
+pytest-cov = "^4.1"
+flake8 = "^6.1"
+black = "^23.11"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --cov=src"
