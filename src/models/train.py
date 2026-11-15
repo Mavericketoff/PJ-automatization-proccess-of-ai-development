@@ -8,7 +8,6 @@ from pathlib import Path
 
 import mlflow
 import mlflow.sklearn
-import numpy as np
 import pandas as pd
 from sklearn.metrics import (
     f1_score,
@@ -92,7 +91,6 @@ def main():
     ]
 
     best_auc = 0
-    best_model = None
 
     for i, cfg in enumerate(configs, start=1):
         with mlflow.start_run(run_name=f"gbm_exp_{i}"):
@@ -118,7 +116,6 @@ def main():
 
             if metrics["roc_auc"] > best_auc:
                 best_auc = metrics["roc_auc"]
-                best_model = pipe
 
     # Финальный прогон с RandomizedSearchCV
     with mlflow.start_run(run_name="randomized_search_final"):
