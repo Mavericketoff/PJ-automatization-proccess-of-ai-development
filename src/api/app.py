@@ -59,6 +59,7 @@ def predict(features: ClientFeatures):
         row = pd.DataFrame([features.model_dump()])
 
         from src.features.build_features import add_features
+
         row = add_features(row)
 
         proba = float(model.predict_proba(row)[:, 1][0])

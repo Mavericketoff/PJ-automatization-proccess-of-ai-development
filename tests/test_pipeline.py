@@ -12,12 +12,14 @@ def test_pipeline_returns_pipeline():
 
 def test_pipeline_fit_predict():
     n = 60
-    df = pd.DataFrame({
-        "LIMIT_BAL": np.random.uniform(10000, 300000, n),
-        "AGE": np.random.randint(20, 65, n),
-        "SEX": np.random.choice([1, 2], n),
-        "y": np.random.choice([0, 1], n),
-    })
+    df = pd.DataFrame(
+        {
+            "LIMIT_BAL": np.random.uniform(10000, 300000, n),
+            "AGE": np.random.randint(20, 65, n),
+            "SEX": np.random.choice([1, 2], n),
+            "y": np.random.choice([0, 1], n),
+        }
+    )
     pipe = build_pipeline(["LIMIT_BAL", "AGE"], ["SEX"])
     pipe.fit(df[["LIMIT_BAL", "AGE", "SEX"]], df["y"])
     preds = pipe.predict(df[["LIMIT_BAL", "AGE", "SEX"]])

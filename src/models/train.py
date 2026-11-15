@@ -60,6 +60,7 @@ def run_search(pipeline, X_train, y_train, n_iter=30):
 
 def plot_roc(y_true, y_proba, save_path="models/roc_curve.png"):
     from sklearn.metrics import RocCurveDisplay
+
     fig, ax = plt.subplots(figsize=(7, 5))
     RocCurveDisplay.from_predictions(y_true, y_proba, ax=ax, name="GBM")
     ax.set_title("ROC-AUC (test set)")
@@ -140,6 +141,7 @@ def main():
 
     # сохраняем модель на диск для DVC
     import joblib
+
     Path("models").mkdir(exist_ok=True)
     joblib.dump(best_pipe, "models/credit_default_model.pkl")
 

@@ -38,9 +38,7 @@ def main() -> None:
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    train_df, test_df = train_test_split(
-        df, test_size=0.2, random_state=42, stratify=df[TARGET]
-    )
+    train_df, test_df = train_test_split(df, test_size=0.2, random_state=42, stratify=df[TARGET])
     train_df.to_csv(OUT_DIR / "train.csv", index=False)
     test_df.to_csv(OUT_DIR / "test.csv", index=False)
     print(f"Train: {len(train_df)}, Test: {len(test_df)} -> сохранено в {OUT_DIR}/")

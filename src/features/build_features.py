@@ -31,9 +31,16 @@ def add_features(df: pd.DataFrame) -> pd.DataFrame:
 def get_feature_names() -> tuple[list[str], list[str]]:
     """Возвращает фичи для pipeline."""
     numeric = [
-        "LIMIT_BAL", "AGE", "PAY_MEAN", "PAY_MAX", "PAY_LATE_RATIO",
-        "TOTAL_BILL", "TOTAL_PAY", "PAY_TO_LIMIT",
-        "BILL_AMT1", "PAY_AMT1",
+        "LIMIT_BAL",
+        "AGE",
+        "PAY_MEAN",
+        "PAY_MAX",
+        "PAY_LATE_RATIO",
+        "TOTAL_BILL",
+        "TOTAL_PAY",
+        "PAY_TO_LIMIT",
+        "BILL_AMT1",
+        "PAY_AMT1",
     ]
     categorical = ["SEX", "EDUCATION", "MARRIAGE", "AGE_BIN"]
     return numeric, categorical
